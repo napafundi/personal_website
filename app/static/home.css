@@ -40,3 +40,10 @@ li a:hover {
 .active {
   background-color: #800;
 }
+
+.main_block {
+  width: auto;
+  height: auto;
+  margin: 50px 50px;
+  background-color: #ccc;
+}

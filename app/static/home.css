@@ -69,10 +69,30 @@ h1.skills_header {
 div.skills_paragraph {
   background-color: rgba(204, 204, 204, 0.9);
   border-radius: 5px;
+  padding-left: 10px;
+  margin-top: 5px;
+}
+
+div.skills_paragraph > div {
+  display: inline-block;
+  height: 391px;
+  vertical-align: top;
+  margin: 10px;
+}
+
+div.project_description {
+  overflow:auto;
 }
 
 h1 {
   margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+h2, h3 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
 }
 
 .link_section {
@@ -94,8 +114,25 @@ li a.sidebar {
   color: white;
   width: 400px;
   padding: 10px 0;
+  border-bottom: 1px solid white;
 }
 
 ul.vertical_list {
   list-style-type: none;
+  width: 125px;
+  margin: auto;
+  border-radius: 5px;
+}
+
+ul.vertical_list > li {
+  display: block;
+  text-align: center;
+  width: 125px;
+  color: white;
+  padding: 10px 0;
+  border-bottom: 1px solid white;
+}
+
+ul.vertical_list li:last-child {
+  border-bottom: 0;
 }

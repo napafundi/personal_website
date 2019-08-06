@@ -1,3 +1,7 @@
+html {
+  overflow-y: scroll;
+}
+
 body {
   background: url("background.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -135,4 +139,25 @@ ul.vertical_list > li {
 
 ul.vertical_list li:last-child {
   border-bottom: 0;
+}
+
+img.tkinter_img {
+  float: right;
+}
+
+img.tkinter_img:hover{
+  position: absolute;
+  right: 200px;
+  bottom: -335px;
+  color: #424242; 
+  -webkit-transition: all .3s ease-in;
+  -moz-transition: all .3s ease-in;
+  -ms-transition: all .3s ease-in;
+  -o-transition: all .3s ease-in;
+  transition: all .3s ease-in;
+  opacity: 1;
+  transform: scale(1.75);
+  -ms-transform: scale(1.75); /* IE 9 */
+  -webkit-transform: scale(1.75); /* Safari and Chrome */
+  z-index: 99999;
 }

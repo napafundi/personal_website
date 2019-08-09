@@ -2,6 +2,59 @@ html {
   overflow-y: scroll;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+[class*="col-"] {
+  width: 100%;
+}
+
+
+@media only screen and (min-width: 769px){
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}
+
+@media only screen and (max-width: 1730px) {
+  div.github-card-container {
+    display: none;
+  }
+  li.github-link {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 1731px) {
+  div.github-card-container {
+    display: block;
+  }
+  li.github-link {
+    display: none;
+  }
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
 body {
   background: url("background.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -17,7 +70,6 @@ ul {
   margin: 0;
   padding: 0;
   top: 0;
-  width: 100%;
   overflow: hidden;
   background-color: #333;
   position: -webkit-sticky; /* Safari */
@@ -46,21 +98,14 @@ li a.active {
 }
 
 .main_block {
-  display: grid;
-  grid-template-columns: 400px auto;
-  grid-template-rows: auto auto;
-  width: auto;
-  height: auto;
   margin: 50px 50px;
+  width: auto;
   background-color: rgba(204, 204, 204, 0.5);
   border-radius: 15px;
-  padding: 5px;
 }
 
 div.skills_section {
-  padding: 10px;
-  grid-column: 2;
-  grid-row: 1 / span 2;
+  height: auto;
 }
 
 h1.skills_header {
@@ -73,19 +118,17 @@ h1.skills_header {
 div.skills_paragraph {
   background-color: rgba(204, 204, 204, 0.9);
   border-radius: 5px;
-  padding-left: 10px;
   margin-top: 5px;
 }
 
 div.skills_paragraph > div {
   display: inline-block;
-  height: 391px;
   vertical-align: top;
-  margin: 10px;
 }
 
 div.project_description {
-  overflow:auto;
+  overflow: auto;
+  max-height: 418px;
 }
 
 h1 {
@@ -99,31 +142,31 @@ h2, h3 {
   text-align: center;
 }
 
-.link_section {
-  height: 300px;
-}
-
 ul.links {
   list-style-type: none;
-  width: 400px;
   height: 100%;
-  margin: 0;
-  padding: 0;
   border-radius: 10px;
+}
+
+ul.links > li {
+  width: 100%;
+}
+
+ul.links li:last-child {
+  border-bottom: 0;
 }
 
 li a.sidebar {
   display: block;
+  height: 40px;
+  line-height: 40px;
   text-align: center;
   color: white;
-  width: 400px;
-  padding: 10px 0;
   border-bottom: 1px solid white;
 }
 
 ul.vertical_list {
   list-style-type: none;
-  width: 125px;
   margin: auto;
   border-radius: 5px;
 }
@@ -131,7 +174,7 @@ ul.vertical_list {
 ul.vertical_list > li {
   display: block;
   text-align: center;
-  width: 125px;
+  width: 100%;
   color: white;
   padding: 10px 0;
   border-bottom: 1px solid white;
@@ -141,23 +184,73 @@ ul.vertical_list li:last-child {
   border-bottom: 0;
 }
 
-img.tkinter_img {
+img#tkinter {
+  width: 50%;
+  height: 200px;
   float: right;
+  cursor: pointer;
+  transition: 0.1s;
 }
 
-img.tkinter_img:hover{
+img#tkinter:hover {
+  opacity: 0.6;
+}
+
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.9); 
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+div[id$="caption"] {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+.modal-content, div[id$="caption"] { 
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+.close {
   position: absolute;
-  right: 200px;
-  bottom: -335px;
-  color: #424242; 
-  -webkit-transition: all .3s ease-in;
-  -moz-transition: all .3s ease-in;
-  -ms-transition: all .3s ease-in;
-  -o-transition: all .3s ease-in;
-  transition: all .3s ease-in;
-  opacity: 1;
-  transform: scale(1.75);
-  -ms-transform: scale(1.75); /* IE 9 */
-  -webkit-transform: scale(1.75); /* Safari and Chrome */
-  z-index: 99999;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
 }

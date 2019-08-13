@@ -3,130 +3,48 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home.css')}}">
-    <script src="{{ url_for('static', filename='home.js') }}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
-  <body>
-    <ul>
-      <li><a class="active topbar" href="#home">Home</a></li>
-      <li><a class="topbar" href="#contact">Contact</a></li>
-    </ul>
-    <div class="main_block">
-      <div class="row">
-        <div class="col-3">
-          <div class="github-card-container">
-            <div class="github-card" data-github="napafundi" data-width="400" data-height="150" data-theme="default"></div>
-            <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
-          </div>
-          <div class="link_section">
-              <ul class="links">
-                <li><a class="sidebar active">Skills</a></li>
-                <li class="github-link"><a class="sidebar" href="https://github.com/napafundi" target="_blank">Github</a></li>
-                <li><a class="sidebar">Resume</a></li>
-                <li><a class="sidebar">Interests</a></li>
-              </ul>
+  <body id="body">
+    <div id="mainContent">
+    <h1>Nicola Pafundi</h1>
+    <nav>
+      <ul class="nav row">
+        <li class="col-2 filler"></li>
+        <li class="col-2 link">
+          <a href="" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-text"></i>Resume</a>
+        </li>
+        <li class="col-2 link">
+          <a href="https://github.com/napafundi" target="_blank" rel="noopener noreferrer"><i class="fa fa-git-square"></i>Github</a>
+        </li>
+        <li class="col-2 link">
+          <a href="https://www.linkedin.com/in/nicola-pafundi-8985b2143/" target="_blank" rel="noopener noreferrer"><i class="fa fa-linkedin-square"></i>LinkedIn</a>
+        </li>
+        <li class="col-2 link">
+          <a id="contactBtn"><i class="fa fa-envelope"></i>Contact</a>
+        </li>
+        <li class="col-2 link filler"></li>
+      </ul>
+    </nav>
+    </div>
+    <div id="contactModal" class="modal">
+      <div class="modalBackground"></div>
+      <div class="modalContent">
+        <span id="modalClose">&times;</span>
+        <ul class="modalList">
+          <li>
+            <div>
+              <a href="mailto:napafundi@gmail.com"><i class="fa modalFa fa-envelope"></i>Email: napafundi@gmail.com</a>
             </div>
-        </div>
-        <div class="col-9">
-          <div class="skills_section">
-            <h1 class="skills_header">Skills</h1>
-            <div class="skills_paragraph row">
-              <div class="col-2">
-                <h2>Languages</h2>
-                <h3>Proficient with:</h3>
-                <ul class="vertical_list">
-                  <li>Python</li>
-                  <li>SQL</li>
-                  <li>Git</li>
-                </ul>
-                <h3>Familiar with:</h3>
-                <ul class="vertical_list">
-                  <li>Javascript</li>
-                  <li>Java</li>
-                  <li>HTML/CSS</li>
-                  <li>VBA</li>
-                </ul>
-              </div>
-              <div class="col-2">
-                <h2>Frameworks/Libraries</h2>
-                <h3>Proficient with:</h3>
-                <ul class="vertical_list">
-                  <li>JQuery</li>
-                  <li>SQLAlchemy</li>
-                  <li>Flask</li>
-                  <li>Tkinter</li>
-                  <li>Openpyxl</li>
-                </ul>
-                <h3>Familiar with:</h3>
-                <ul class="vertical_list">
-                  <li>Pandas</li>
-                </ul>
-              </div>
-              <div class="col-2">
-                <h2>Dev Environments</h2>
-                <h3>Proficient with:</h3>
-                <ul class="vertical_list">
-                  <li>VSCode</li>
-                  <li>Atom</li>
-                </ul>
-                <h3>Familiar with:</h3>
-                <ul class="vertical_list">
-                  <li>Android Studio</li>
-                  <li>Eclipse</li>
-                  <li>IntelliJ</li>
-                </ul>
-              </div>
-                <div class="project_description col-6">
-                  <h2 class="project_header">Albany Distilling Project</h2>
-                  <div class="project_container">
-                    <p>
-                      While working as an assistant distiller at The Albany 
-                      Distilling Company, I took on the responsibility of inventory 
-                      management. During this time, I found the use of multiple
-                      Excel files for inventory purposes to be inefficient.
-                      I originally wrote some VBA to handle certain inventory 
-                      transactions such as shipping, receiving and production, in 
-                      hopes of speeding up the process. The code can be seen  
-                      <a href="https://github.com/napafundi/adco_vba" target="_blank">here</a>.
-                      <br>
-                      <br>
-                      While this was helpful, it required a lot of manual
-                      editing and wasn't easily scalable. I started to learn Python
-                      in hopes of creating an application that addressed these 
-                      issues. I originally created a GUI that allowed the user 
-                      to view and interact with data stored in a SQLite database 
-                      file. The code for this application can be found 
-                      <a href="https://github.com/napafundi/adco_project" target="_blank">here</a>.
-                      <br>
-                      This program had several features. It included a myriad of 
-                      buttons that allowed users to easily view and update 
-                      inventory data. Some examples include functions that took 
-                      purchase order data and wrote it to a formatted Excel file 
-                      for quick printing, a function that subtracted raw 
-                      materials used during production and updated product 
-                      inventory, and a page that displayed overall inventory 
-                      value by category.
-                      <img id="tkinter" onclick="modalDisplay(this)" src="{{ url_for('static', filename='tkinter.png') }}" alt="Snippet of original GUI using tkinter (Python library)">
-                      <div id="tkinter_modal" class="modal">
-                        <span class="close" onclick="this.parentElement.style.display = 'none';">&times;</span>
-                        <img class="modal-content" id="tkinter_modal_img">
-                        <div id="tkinter_caption"></div>
-                      </div>
-                      This application was written with the hopes that a sqlite 
-                      file could be hosted within a Dropbox folder. I quickly 
-                      learned that this was not the case. I then wrote an 
-                      updated version of the program which used MYSQL and 
-                      Amazon's database web services to store the data online.
-                      Although this worked temporarily, I felt that the 
-                      application's security was at risk. Python's source, being
-                      easily accessible, would let any future employee with 
-                      minimal programming knowledge to mess with the program. 
-                    </p>
-                  </div>
-                </div>
+          </li>
+          <li>
+            <div>
+              <i class="fa modalFa fa-phone"></i>Phone: 518-366-5219
             </div>
-          </div>
-      </div>
+          </li>
+        </ul>
       </div>
     </div>
   </body>
+  <script src="{{ url_for('static', filename='home.js') }}"></script>
 </html>

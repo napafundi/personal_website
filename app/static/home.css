@@ -60,6 +60,23 @@
     font-size: 5vw;
     background-color: rgba(23, 32, 42, .5); 
   }
+  div.modalContent {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    top: 30%;
+    left: 0;
+  }
+  div ul.modalList li, div ul.modalList li a {
+    font-size: 5vw;
+  }
+  div ul.modalList li i.modalFa {
+    width: 7vw;
+  }
+  div.modalContent span#modalClose {
+    font-size: 5vw;
+    margin-right: 2vw;
+  }
 }
 
 [class*="col-"] {

@@ -1,5 +1,4 @@
-//Wait to run your initialization code until the DOM is fully loaded. This is needed
-// when wanting to access elements that are later in the HTML than the <script>.
+
 document.addEventListener('DOMContentLoaded', function(event) {;
     var modalBtn = document.getElementById("contactBtn");
     var modalView = document.getElementById("contactModal");

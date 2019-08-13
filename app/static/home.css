@@ -19,7 +19,12 @@
 }
 
 @media only screen and (max-width: 1024px) {
-  html {
+  html.background{
+    background: url("background.jpg") no-repeat left bottom;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     height: 100%;
     overflow: hidden;
   }
@@ -100,11 +105,16 @@
 }
 
 html {
-  background: url("background.jpg") no-repeat center center fixed;
+  background: url("background.jpg") no-repeat center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    height: 100%;
+}
+
+body {
+  height: 100%;
 }
 
 #mainContent {

@@ -19,6 +19,15 @@
 }
 
 @media only screen and (max-width: 1024px) {
+  html {
+    height: 100%;
+    overflow: hidden;
+  }
+  body {
+    height: 100%;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
   body nav {
     top: 10vw;
     left: 0;
@@ -96,8 +105,6 @@ html {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    height: 100%;
-    overflow: hidden;
 }
 
 #mainContent {

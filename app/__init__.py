@@ -1,12 +1,14 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from flask_login import LoginManager
 import os
 
 from config import Config
 
 db = SQLAlchemy()
 migrate = Migrate()
+login = LoginManager()
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True, static_folder='static')
@@ -20,6 +22,7 @@ def create_app(test_config=None):
 
     db.init_app(app)
     migrate.init_app(app,db)
+    login.init_app(app)
 
     from app.main import main_bp
     app.register_blueprint(main_bp)

@@ -29,4 +29,11 @@ def create_app(test_config=None):
     except OSError:
         pass
 
+    from app.models import User, Post
+
+    # Add db and model variables to 'flask shell' context
+    @app.shell_context_processor
+    def make_shell_context():
+        return {'db': db, 'User': User, 'Post': Post}
+
     return app

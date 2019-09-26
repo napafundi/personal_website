@@ -9,6 +9,7 @@ from config import Config
 db = SQLAlchemy()
 migrate = Migrate()
 login = LoginManager()
+login.login_view = 'main.login'
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True, static_folder='static')
